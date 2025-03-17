@@ -11,6 +11,12 @@ public class ProductOptionList {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private Integer stock;
+
+    private Boolean soldOut;
+
+    private Integer dangerStock;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
 
