@@ -1,5 +1,10 @@
 package com.hj.hyeonjae.cart.application;
 
+import com.hj.hyeonjae.cart.dto.in.RequestCartDTO;
+import com.hj.hyeonjae.cart.dto.out.ResponseCartDTO;
+
+import java.util.List;
+
 public interface CartService {
 
     void addCart(RequestCartDTO requestCartDTO);

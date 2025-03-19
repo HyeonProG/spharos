@@ -1,6 +1,7 @@
 package com.hj.hyeonjae.cart.dto.in;
 
 import com.hj.hyeonjae.cart.domain.Cart;
+import com.hj.hyeonjae.cart.vo.RequestCartVO;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
