@@ -2,12 +2,8 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/starbucks_database
     username: root
-    password: 1234
+    password: zxcv4312
     driver-class-name: com.mysql.cj.jdbc.Driver
-
-  output:
-    ansi:
-      enabled: always
 
   jpa:
     hibernate:
@@ -17,10 +13,10 @@ spring:
 
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLDialect
+        dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
 
 JWT:
-  secret-key: 52f47oq9Tvm5nrsXEIJCnfEfmVyRLnyzKeJiEN5fld4=
+  secret-key: AJZLDkPmGwRkChRFVwmgpkZ0Pm7vIsugO1GqRNm3MnU=
   token:
-    access-expire-time: 60000
+    access-expire-time: 24 * 60 * 60 * 1000
