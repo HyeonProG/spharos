@@ -19,3 +19,8 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
         format_sql: true
+
+JWT:
+  secret-key: 52f47oq9Tvm5nrsXEIJCnfEfmVyRLnyzKeJiEN5fld4=
+  token:
+    access-expire-time: 60000
