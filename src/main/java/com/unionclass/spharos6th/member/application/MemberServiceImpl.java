@@ -1,5 +1,7 @@
 package com.unionclass.spharos6th.member.application;
 
+import com.unionclass.spharos6th.common.entity.BaseResponseStatus;
+import com.unionclass.spharos6th.common.exception.BaseException;
 import com.unionclass.spharos6th.common.jwt.JwtTokenProvider;
 import com.unionclass.spharos6th.member.domain.Member;
 import com.unionclass.spharos6th.member.dto.in.MemberAddDto;
@@ -31,6 +33,12 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void signUp(SignUpRequestDto signUpRequestDto) {
+
+        try {
+            memberRepository.save(signUpRequestDto.toEntity(UUID.randomUUID().toString()));
+        } catch (Exception e) {
+            throw new BaseException(BaseResponseStatus.FAILED_TO_RESTORE);
+        }
 
     }
 
