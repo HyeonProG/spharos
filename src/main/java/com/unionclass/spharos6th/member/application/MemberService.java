@@ -8,9 +8,35 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public interface MemberService {
 
+    /**
+     * 1. Add member
+     *
+     * @param memberAddDto
+     */
     void addMember(MemberAddDto memberAddDto);
+
+    /**
+     * 2. Sign up
+     *
+     * @param signUpRequestDto
+     */
     void signUp(SignUpRequestDto signUpRequestDto);
+
+    /**
+     * 3. Sign in
+     *
+     * @param signInRequestDto
+     * @return SignInResponseDto
+     */
     SignInResponseDto signIn(SignInRequestDto signInRequestDto);
+
+    /**
+     * 4. Load user by username
+     *
+     * @param memberUuid
+     * @return UserDetails
+     */
     UserDetails loadUserByUsername(String memberUuid);
+
 
 }
