@@ -1,5 +1,6 @@
 package com.unionclass.spharos6th.member.presentation;
 
+import com.unionclass.spharos6th.common.entity.BaseResponseEntity;
 import com.unionclass.spharos6th.member.application.MemberService;
 import com.unionclass.spharos6th.member.dto.in.MemberAddDto;
 import com.unionclass.spharos6th.member.dto.in.SignInRequestDto;
@@ -48,9 +49,11 @@ public class MemberController {
      */
     @Operation(summary = "SignIn API", description = "SignIn API 입니다.", tags = {"Member-service"})
     @PostMapping("/sign-in")
-    public SignInResponseVo signIn(
+    public BaseResponseEntity<SignInResponseVo> signIn(
           @RequestBody SignInRequestVo signInRequestVo
     ) {
-        return memberService.signIn(SignInRequestDto.from(signInRequestVo)).toVo();
+        return new BaseResponseEntity<>(
+                memberService.signIn(SignInRequestDto.from(signInRequestVo)).toVo()
+        );
     }
 }
