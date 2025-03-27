@@ -36,6 +36,10 @@ public class Member extends BaseEntity implements UserDetails {
     private String phoneNumber;
     private String birth;
 
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
     @Builder
     public Member(
             Long id,
@@ -44,7 +48,8 @@ public class Member extends BaseEntity implements UserDetails {
             String email,
             String password,
             String phoneNumber,
-            String birth
+            String birth,
+            Gender gender
     ) {
         this.id = id;
         this.memberUuid = memberUuid;
@@ -53,6 +58,7 @@ public class Member extends BaseEntity implements UserDetails {
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.birth = birth;
+        this.gender = gender;
     }
 
     @Override
