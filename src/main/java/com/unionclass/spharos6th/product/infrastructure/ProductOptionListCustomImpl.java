@@ -31,6 +31,7 @@ public class ProductOptionListCustomImpl implements ProductOptionListCustomRepos
     ) {
 
         QProductOptionList productOptionList = QProductOptionList.productOptionList;
+
         BooleanBuilder builder = new BooleanBuilder();
         Optional.ofNullable(sizeId).ifPresent(
                 id -> builder.and(productOptionList.size.id.eq(sizeId))
