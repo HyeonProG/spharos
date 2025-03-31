@@ -4,12 +4,15 @@ import com.unionclass.spharos6th.common.entity.BaseResponseStatus;
 import com.unionclass.spharos6th.common.exception.BaseException;
 import com.unionclass.spharos6th.common.jwt.JwtTokenProvider;
 import com.unionclass.spharos6th.member.domain.Member;
+import com.unionclass.spharos6th.member.dto.in.ChangeNameRequestDto;
 import com.unionclass.spharos6th.member.dto.in.MemberAddDto;
 import com.unionclass.spharos6th.member.dto.in.SignInRequestDto;
 import com.unionclass.spharos6th.member.dto.in.SignUpRequestDto;
 import com.unionclass.spharos6th.member.dto.out.SignInResponseDto;
 import com.unionclass.spharos6th.member.infrastructure.MemberRepository;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -18,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService {
@@ -33,11 +37,11 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void signUp(SignUpRequestDto signUpRequestDto) {
-        try {
-            memberRepository.save(signUpRequestDto.toEntity(UUID.randomUUID().toString()));
-        } catch (Exception e) {
-            throw new BaseException(BaseResponseStatus.FAILED_TO_RESTORE);
-        }
+//        try {
+//            memberRepository.save(signUpRequestDto.toEntity(UUID.randomUUID().toString()));
+//        } catch (Exception e) {
+//            throw new BaseException(BaseResponseStatus.FAILED_TO_RESTORE);
+//        }
     }
 
     @Override
@@ -58,6 +62,14 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public UserDetails loadUserByUsername(String memberUuid) {
         return memberRepository.findByMemberUuid(memberUuid).orElseThrow(() -> new IllegalArgumentException(memberUuid));
+    }
+
+    @Override
+    public void changeName(ChangeNameRequestDto changeNameRequestDto) {
+        Member member = memberRepository.findByMemberUuid(changeNameRequestDto.getUserUuid()).orElseThrow(
+                () -> new BaseException(BaseResponseStatus.FAILED_TO_LOGIN)
+        );
+        member.changeName(changeNameRequestDto.getName());
     }
 
     private String createToken(Authentication authentication) {

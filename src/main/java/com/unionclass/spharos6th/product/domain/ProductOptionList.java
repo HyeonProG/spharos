@@ -3,7 +3,9 @@ package com.unionclass.spharos6th.product.domain;
 import com.unionclass.spharos6th.color.domain.Color;
 import com.unionclass.spharos6th.size.domain.Size;
 import jakarta.persistence.*;
+import lombok.Getter;
 
+@Getter
 @Entity
 public class ProductOptionList {
 

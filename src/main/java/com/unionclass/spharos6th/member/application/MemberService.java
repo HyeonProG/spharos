@@ -1,5 +1,6 @@
 package com.unionclass.spharos6th.member.application;
 
+import com.unionclass.spharos6th.member.dto.in.ChangeNameRequestDto;
 import com.unionclass.spharos6th.member.dto.in.MemberAddDto;
 import com.unionclass.spharos6th.member.dto.in.SignInRequestDto;
 import com.unionclass.spharos6th.member.dto.in.SignUpRequestDto;
@@ -41,5 +42,7 @@ public interface MemberService {
      * @return UserDetails
      */
     UserDetails loadUserByUsername(String memberUuid);
+
+    void changeName(ChangeNameRequestDto changeNameRequestDto);
 
 }

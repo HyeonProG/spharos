@@ -60,6 +60,13 @@ public class Member extends BaseEntity implements UserDetails {
         this.gender = gender;
     }
 
+    public void changeName(String name) {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("이름은 비어있을 수 없습니다.");
+        }
+        this.name = name;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();
