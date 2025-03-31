@@ -33,27 +33,25 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void signUp(SignUpRequestDto signUpRequestDto) {
-
         try {
             memberRepository.save(signUpRequestDto.toEntity(UUID.randomUUID().toString()));
         } catch (Exception e) {
             throw new BaseException(BaseResponseStatus.FAILED_TO_RESTORE);
         }
-
     }
 
     @Override
     public SignInResponseDto signIn(SignInRequestDto signInRequestDto) {
 
         Member member = memberRepository.findByEmail(signInRequestDto.getEmail()).orElseThrow(
-                () -> new IllegalArgumentException(signInRequestDto.getEmail())
+                () -> new BaseException(BaseResponseStatus.FAILED_TO_LOGIN)
         );
 
         try {
             return SignInResponseDto.from(member, createToken(authenticate(member, signInRequestDto.getPassword())));
 
         } catch (Exception e) {
-            throw new IllegalArgumentException(signInRequestDto.getEmail());
+            throw new BaseException(BaseResponseStatus.FAILED_TO_LOGIN);
         }
     }
 

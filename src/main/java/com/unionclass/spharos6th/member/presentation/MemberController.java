@@ -21,7 +21,6 @@ public class MemberController {
 
     private final MemberService memberService;
 
-
     /**
      * api/v1/member
      * 1. 회원가입
@@ -34,7 +33,7 @@ public class MemberController {
      * 회원가입
      * @param memberSignUpVo
      */
-    @Operation(summary = "SignUp API", description = "회원가입 API", tags = {"Member-Service"})
+    @Operation(summary = "SignUp API", description = "SignUp API 입니다.", tags = {"Member-service"})
     @PostMapping("/sign-up")
     public void singUp(
           @RequestBody MemberSignUpVo memberSignUpVo

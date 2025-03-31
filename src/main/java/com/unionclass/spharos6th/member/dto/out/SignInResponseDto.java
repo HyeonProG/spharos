@@ -1,7 +1,6 @@
 package com.unionclass.spharos6th.member.dto.out;
 
 import com.unionclass.spharos6th.member.domain.Member;
-import com.unionclass.spharos6th.member.dto.in.SignInRequestDto;
 import com.unionclass.spharos6th.member.vo.SignInResponseVo;
 import lombok.Builder;
 import lombok.Getter;

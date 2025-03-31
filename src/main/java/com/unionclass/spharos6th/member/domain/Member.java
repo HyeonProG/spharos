@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 @Entity
@@ -36,7 +35,7 @@ public class Member extends BaseEntity implements UserDetails {
     private String phoneNumber;
     private String birth;
 
-    @Column(nullable = false)
+//    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Gender gender;
 

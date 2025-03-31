@@ -5,6 +5,7 @@ import lombok.Getter;
 @Getter
 public class MemberSignUpVo {
 
+
     private String name;
     private String email;
     private String password;

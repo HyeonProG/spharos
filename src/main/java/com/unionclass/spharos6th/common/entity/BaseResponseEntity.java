@@ -3,6 +3,7 @@ package com.unionclass.spharos6th.common.entity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 
+
 public record BaseResponseEntity<T>(HttpStatusCode httpStatus, Boolean isSuccess, String message, int code, T result) {
 
     /**
